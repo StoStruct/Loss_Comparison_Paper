@@ -253,7 +253,7 @@ Evaluates combinations of:
 When using this repository, please cite:
 
 ```
-Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2024). 
+Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
 Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings. 
 Earthquake Spectra. [Under Review]
 ```
