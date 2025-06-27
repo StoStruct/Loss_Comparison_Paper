@@ -35,7 +35,7 @@ Additionally, sensitivity analyses investigate the influence of key modeling dec
 
 ## Methodology Overview
 
-![Methodology Flowchart](https://github.com/yourusername/repository-name/blob/main/Methodology_Flowchart.png)
+![Methodology Flowchart](https://github.com/shivalingabaddipalli/Loss_Comparison_Sensitivity/blob/main/Methodology_Flowchart.png)
 
 **Figure 1. Comparison and sensitivity analysis of seismic loss assessment methodologies.**
 
