@@ -1,0 +1,206 @@
+%% ========================================================================
+%  EXPECTED ANNUAL LOSS (EAL) VISUALIZATION FOR STEEL BUILDINGS
+%  
+%  This script creates box plots comparing normalized EAL data across
+%  different methodologies (HAZUS, FEMA P-58, SLF) for buildings with
+%  varying number of stories.
+%
+%  Data Columns for Different Loss Types:
+%  - Column 7:  Structural losses (IDR-S)
+%  - Column 8:  Non-structural drift-sensitive losses (IDR-NS)  
+%  - Column 9:  Non-structural acceleration-sensitive losses (PFA-NS)
+%  - Column 11: Total losses (currently plotted)
+%
+% % Author: Shiva Baddipalli
+% Institution: Utah State University, USA
+% Email: shivalinga.baddipalli@usu.edu
+% Last Updated: June 25, 2025
+%% ========================================================================
+
+% Clear workspace and close all figures
+clc;
+clearvars; 
+close all;
+clear;
+
+%% File paths - Update these paths according to your data location
+csvFilePath1 = 'D:\PhD\Sensitivity_EAL\Building_Info.xlsx';
+csvFilePath2_hazus = 'D:\PhD\Sensitivity_EAL\HAZUS_EAL_NormEAL.xlsx';
+csvFilePath2 = 'D:\PhD\Sensitivity_EAL\FEMAP58_EAL_NormEAL.xlsx';
+SLF_FILE = 'D:\PhD\Sensitivity_EAL\SLF_EAL_NormEAL.xlsx';
+
+%% Read data from Excel files
+% Read building information and remove header row
+data1 = readmatrix(csvFilePath1);
+data1 = data1(2:end, :);
+
+% Read EAL data from different methodologies
+data2 = readmatrix(csvFilePath2);           % FEMA P-58 component-based data
+data2_hazus = readmatrix(csvFilePath2_hazus); % HAZUS assembly-based data
+data_SLF = readmatrix(SLF_FILE);            % Story Loss Function data
+
+%% Extract building parameters from data1
+% Physical building properties
+Building_weight = data1(:, 3) / 1000;      % Building weight in kips (converted from pounds)
+Building_ht = data1(:, 16);                % Building height
+BuildingHt_To_FirstStoryHt = data1(:, 31); % Height ratio to first story
+LFRS_BayWidth = data1(:, 15);              % Lateral Force Resisting System bay width
+Num_Stories = data1(:, 16);                % Number of stories
+avg_int_Ixx = data1(:, 5);                 % Average moment of inertia
+
+% Structural configuration parameters
+SCWB = data1(:, 17);                       % Strong Column Weak Beam ratio
+AVG_SCWB = data1(:, 29);                   % Average SCWB ratio
+TimePeriod = data1(:, 19);                 % Fundamental period
+Avg_DblrPlte_Thickness = data1(:, 20);     % Average doubler plate thickness
+
+% Design parameters and demand-to-capacity ratios
+Avg_DgnStoryDrift = data1(:, 23) * 100;    % Average design story drift (converted to %)
+story1_DgnStoryDrift = data1(1:81, 23) * 100; % First story design drift for subset
+Avg_BeamFlexuralDCRatio = data1(:, 24);    % Average beam flexural demand-to-capacity ratio
+Avg_BeamShearDCRatio = data1(:, 25);       % Average beam shear demand-to-capacity ratio
+Avg_ColumnAxialDCRatio = data1(:, 26);     % Average column axial demand-to-capacity ratio
+Avg_ColumnFlexuralDCRatio = data1(:, 27);  % Average column flexural demand-to-capacity ratio
+Avg_ColumnShearDCRatio = data1(:, 28);     % Average column shear demand-to-capacity ratio
+
+%% Extract normalized EAL data and convert to percentage
+% NOTE: Change column number to plot different loss types:
+% Column 7: Structural, Column 8: IDR-NS, Column 9: PFA-NS, Column 11: Total
+NormEAL_Tot_hazus = data2_hazus(:, 11).*100;  % HAZUS normalized EAL (Assembly-based)
+NormEAL_Tot = data2(:, 11).*100;              % FEMA P-58 normalized EAL (Component-based)
+NormEAL_Tot_SLF = data_SLF(:, 11).*100;       % SLF normalized EAL
+
+%% Define color scheme for different methodologies
+dark_red = [0.937, 0.231, 0.173];    % Component-based (FEMA P-58)
+dark_blue = [0.259, 0.573, 0.776];   % Assembly-based (HAZUS)
+dark_green = [0.451, 0.451, 0.451];  % Story Loss Function (SLF)
+
+%% Set font sizes and line properties for professional appearance
+xFontSize = 18;              % X-axis label font size
+yFontSize = 18;              % Y-axis label font size
+TickLabelFontSize = 16;      % Tick labels font size
+legendFontSize = 16;         % Legend font size
+lineWidth = 1.2;             % Line width for axes
+lineWidthbox = 1.2;          % Line width for legend box
+
+%% Set global font to Times New Roman for professional appearance
+set(0, 'DefaultAxesFontName', 'Times New Roman');
+set(0, 'DefaultTextFontName', 'Times New Roman');
+
+%% Create figure and start plotting
+figure;
+hold on;
+
+%% Prepare box plot positioning
+unique_heights = unique(Building_ht);     % Get unique building heights/stories
+positions = 1:length(unique_heights);    % Position array for box plots
+
+% Initialize arrays for legend handles and labels
+legend_handles = [];
+legend_labels = {'Assembly', 'Component', 'SLF'};
+
+%% Create box plots for each methodology
+
+% HAZUS (Assembly-based) box plot - narrowest width
+h_hazus = boxplot(NormEAL_Tot_hazus, Building_ht, 'Colors', dark_blue, ...
+                  'positions', positions, 'Widths', 0.3);
+set(findobj(h_hazus, 'Tag', 'Outliers'), 'MarkerEdgeColor', dark_blue);
+legend_handles(end+1) = h_hazus(1);
+
+% Set whisker and median line thickness for HAZUS
+set(findobj(h_hazus, 'Tag', 'Whisker'), 'LineWidth', 1.2);
+set(findobj(h_hazus, 'Tag', 'Median'), 'LineWidth', 1.5);
+
+% FEMA P-58 (Component-based) box plot - widest width
+hold on;
+h_component = boxplot(NormEAL_Tot, Building_ht, 'Colors', dark_red, ...
+                      'positions', positions, 'Widths', 0.5);
+set(findobj(h_component, 'Tag', 'Outliers'), 'MarkerEdgeColor', dark_red);
+legend_handles(end+1) = h_component(1);
+
+% Set whisker and median line thickness for Component
+set(findobj(h_component, 'Tag', 'Whisker'), 'LineWidth', 1.2);
+set(findobj(h_component, 'Tag', 'Median'), 'LineWidth', 1.5);
+
+% SLF (Story Loss Function) box plot - medium width
+hold on;
+h_slf = boxplot(NormEAL_Tot_SLF, Building_ht, 'Colors', dark_green, ...
+                'positions', positions, 'Widths', 0.4);
+set(findobj(h_slf, 'Tag', 'Outliers'), 'MarkerEdgeColor', dark_green);
+legend_handles(end+1) = h_slf(1);
+
+% Set whisker and median line thickness for SLF
+set(findobj(h_slf, 'Tag', 'Whisker'), 'LineWidth', 1.2);
+set(findobj(h_slf, 'Tag', 'Median'), 'LineWidth', 1.5);
+
+%% Set axis limits and ticks
+xlim([0.5, 5.5]);
+
+% Y-axis limits and ticks - CHANGE THESE for different loss types:
+% For Total losses (Column 11):
+ylim([0, 21.4]);
+yticks([0, 5, 10, 15, 20]);
+
+% For Structural losses (Column 7) - uncomment next two lines:
+% ylim([0, 3]);
+% yticks([0, 1, 2, 3]);
+
+% For IDR-NS losses (Column 8) - uncomment next two lines:
+% ylim([0, 2.14]);
+% yticks([0, 0.5, 1, 1.5, 2]);
+
+% For PFA-NS losses (Column 9) - uncomment next two lines:
+% ylim([0, 20]);
+% yticks([0, 5, 10, 15, 20]);
+
+%% Add axis labels
+xlabel('Number of stories', 'FontSize', xFontSize);
+ylabel('Normalized EAL (%)', 'FontSize', yFontSize);
+
+%% Fill box plots with semi-transparent colors
+% Fill HAZUS boxes
+patches_hazus = findobj(h_hazus, 'Tag', 'Box');
+for j = 1:length(patches_hazus)
+    patch(get(patches_hazus(j), 'XData'), get(patches_hazus(j), 'YData'), ...
+          dark_blue, 'FaceAlpha', .7);
+end
+
+% Fill Component boxes
+patches_component = findobj(h_component, 'Tag', 'Box');
+for j = 1:length(patches_component)
+    patch(get(patches_component(j), 'XData'), get(patches_component(j), 'YData'), ...
+          dark_red, 'FaceAlpha', .7);
+end
+
+% Fill SLF boxes
+patches_slf = findobj(h_slf, 'Tag', 'Box');
+for j = 1:length(patches_slf)
+    patch(get(patches_slf(j), 'XData'), get(patches_slf(j), 'YData'), ...
+          dark_green, 'FaceAlpha', .7);
+end
+
+%% Optional: Create custom legend with colored patches (currently commented out)
+% h_patch = [patch(NaN, NaN, dark_blue, 'FaceAlpha', 1), ...
+%            patch(NaN, NaN, dark_red, 'FaceAlpha', 1), ...
+%            patch(NaN, NaN, dark_green, 'FaceAlpha', 1)];
+% legend_handle = legend(h_patch, legend_labels, 'Location', 'northwest', 'FontSize', legendFontSize);
+% 
+% % Set the legend box and line properties
+% set(legend_handle, 'EdgeColor', 'k', 'LineWidth', lineWidthbox);
+
+% Simple legend (currently commented out)
+% legend('Total Loss', 'Location', 'northwest', 'Box', 'off');
+
+%% Format axes with professional appearance
+set(gca, 'FontSize', TickLabelFontSize, 'LineWidth', lineWidth, ...
+         'Box', 'on', 'XColor', 'k', 'YColor', 'k');
+
+%% Optional: Add horizontal grid lines (currently commented out)
+% grid on;
+% set(gca, 'XGrid', 'off', 'YGrid', 'on', 'GridLineStyle', '-', ...
+%          'GridColor', [0.8, 0.8, 0.8], 'GridAlpha', 1);
+
+%% Save the figure (currently commented out)
+% Update filename as needed for different loss types
+% saveas(gcf, 'BuildingHeight_Struct.png');
+% print(gcf, 'NumStories_TOT_04-12-25', '-dpng', '-r1200');
