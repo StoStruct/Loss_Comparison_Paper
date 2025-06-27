@@ -1,0 +1,5 @@
+ITEM,ID,EDP,Component,Group,Quantity,Damage States,"DS1, Median Demand","DS2, Median Demand","DS3, Median Demand","DS4, Median Demand","DS5, Median Demand","DS1, Total Dispersion (Beta)","DS2, Total Dispersion (Beta)","DS3, Total Dispersion (Beta)","DS4, Total Dispersion (Beta)","DS5, Total Dispersion (Beta)","DS1, Repair COST","DS2, Repair COST","DS3, Repair COST","DS4, Repair COST","DS5, Repair COST","DS1, COST Dispersion (Beta)","DS2, COST Dispersion (Beta)","DS3, COST Dispersion (Beta)","DS4, COST Dispersion (Beta)","DS5, COST Dispersion (Beta)","DS1, best fit","DS2, best fit","DS3, best fit","DS4, best fit","DS5, best fit"
+1,B1,PSD,NS,2,225,2,0.0338,0.0383,,,,0.4,0.4,,,,1096,1096,,,,0.1668,0.1668,,,,,,,,
+2,B2,PSD,NS,2,23,3,0.005,0.01,0.021,,,0.4,0.3,0.2,,,1428,3640,7438,,,0.4814,0.5559,0.1959,,,,,,,
+3,B3,PSD,NS,2,2,1,0.0021,,,,,0.6,,,,,2700,,,,,0.1542,,,,,,,,,
+4,B4,PSD,NS,2,2,3,0.005,0.017,0.028,,,0.6,0.6,0.45,,,4002,10237,34676,,,0.4586,0.4859,0.0969,,,,,,,
