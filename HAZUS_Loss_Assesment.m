@@ -2,12 +2,16 @@
 % =========================================================================
 % HAZUS-BASED SEISMIC LOSS ASSESSMENT FOR STEEL MOMENT-RESISTING FRAMES
 % =========================================================================
-
+%
 % Author: Shiva Baddipalli
-% Institution: Utah State University, USA
 % Email: shivalinga.baddipalli@usu.edu
-% Last Updated: June 25, 2025
-
+% Last Updated: June 27, 2025
+%
+% Corresponding Author:
+% Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
+% Department of Civil and Environmental Engineering
+% Utah State University, Logan, UT, United States
+%
 % Description:
 %   This script implements the HAZUS methodology for seismic loss assessment
 %   of steel moment-resisting frame buildings. HAZUS uses simplified fragility
