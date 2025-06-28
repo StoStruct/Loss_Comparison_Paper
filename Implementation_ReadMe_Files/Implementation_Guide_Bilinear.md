@@ -7,7 +7,7 @@ Upgrade your main seismic loss assessment linear regression code to use piecewis
 
 ## 2. Prerequisites
 - The FEMA P-58 linear regression code
-- The `piecewise_functions.m` file from this repository
+- The `Bilinear_functions.m` file from this repository
 - MATLAB with Optimization Toolbox
   
 **📋 Applicable to Multiple Methodologies**: 
@@ -30,12 +30,12 @@ copyfile('../HAZUS_Loss_Assessment.m', '../HAZUS_Loss_Assessment_backup.m');
 copyfile('../SLF_Loss_Assessment.m', '../SLF_Loss_Assessment_backup.m');
 ```
 ### Step 2: Add Piecewise Functions
-1. Open `Piecewise_fit_function.m` and copy all contents
+1. Open `Bilinear_fit_function.m` and copy all contents
 2. Open your main loss assessment script:
    - FEMA P-58: [`FEMAP58_Loss_Assessment.m`](../FEMAP58_Loss_Assessment.m)
    - HAZUS: [`HAZUS_Loss_Assessment.m`](../HAZUS_Loss_Assessment.m) 
    - SLF: [`SLF_Loss_Assessment.m`](../SLF_Loss_Assessment.m)
-3. Paste the piecewise functions **at the very end** of your script, after all main code but before any final `end` statements
+3. Paste the bilinear functions **at the very end** of your script, after all main code but before any final `end` statements
 
 ⚠️ **Important**: You need to find and replace linear regression calls in your code where `fitlm()` is currently used. The locations and variable names may vary between methodologies:
 
