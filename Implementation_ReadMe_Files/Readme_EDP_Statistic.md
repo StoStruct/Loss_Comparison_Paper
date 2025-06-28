@@ -106,3 +106,7 @@ log_alpha = slope*log(TimePeriod) + intercept;
 Utah State University  
 shivalinga.baddipalli@usu.edu
 
+**Corresponding Author:**  
+- Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
+- Department of Civil and Environmental Engineering
+- Utah State University, Logan, UT, United States
