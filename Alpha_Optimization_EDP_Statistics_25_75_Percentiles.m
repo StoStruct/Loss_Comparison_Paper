@@ -21,7 +21,7 @@
 % Email: shivalinga.baddipalli@usu.edu
 % Last Updated: June 27, 2025
 %
-%Corresponding Author:
+% Corresponding Author:
 % Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
 % Department of Civil and Environmental Engineering
 % Utah State University, Logan, UT, United States
