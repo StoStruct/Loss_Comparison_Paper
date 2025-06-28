@@ -4,8 +4,13 @@
 % improved demand modeling in FEMA P-58 seismic loss assessment
 %
 % Author: Shiva Baddipalli
-% Institution: Utah State University, USA
 % Email: shivalinga.baddipalli@usu.edu
+% Last Updated: June 27, 2025
+%
+% Corresponding Author:
+% Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
+% Department of Civil and Environmental Engineering
+% Utah State University, Logan, UT, United States
 %
 % HOW TO USE:
 % 1. Add these functions to the end of your main FEMA P-58 script
