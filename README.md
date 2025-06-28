@@ -4,6 +4,22 @@ This repository contains scripts and data associated with the research paper "Im
 
 Baddipalli, Shivalinga, Roberto Gentile, Gerard J. O'Reilly, Davit Shahnazaryan, and Mohsen Zaker Esteghamati (2025) "Scripts and data for Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings", GitHub Repository.
 
+**Citation:**
+When using this repository, please cite:
+
+```
+Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
+Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings. 
+Earthquake Spectra. [Under Review]
+```
+
+**Repository Citation:**
+```
+Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
+Scripts and data for Impact of Modeling Decisions on Seismic Loss and Fragility Assessment 
+of Steel Buildings. GitHub Repository. https://github.com/yourusername/repository-name
+```
+
 ## Table of Contents
 - [Overview and Motivation](#overview-and-motivation)
 - [Methodology Overview](#methodology-overview)
@@ -248,19 +264,3 @@ Evaluates combinations of:
 - Dr. Roberto Gentile: r.gentile@ucl.ac.uk (University College London)
 - Dr. Gerard J. O'Reilly: gerard.oreilly@iusspavia.it (IUSS Pavia)
 - Dr. Davit Shahnazaryan: davit.shahnazaryan@iusspavia.it (IUSS Pavia)
-
-**Citation:**
-When using this repository, please cite:
-
-```
-Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
-Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings. 
-Earthquake Spectra. [Under Review]
-```
-
-**Repository Citation:**
-```
-Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
-Scripts and data for Impact of Modeling Decisions on Seismic Loss and Fragility Assessment 
-of Steel Buildings. GitHub Repository. https://github.com/yourusername/repository-name
-```
