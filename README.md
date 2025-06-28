@@ -147,7 +147,7 @@ The study investigates four critical modeling decisions:
 Enhanced IM-EDP modeling capturing structural nonlinearity through bilinear relationships.
 
 **Implementation Steps**
-1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main core loss script (any of FEMA P-58, HAZUS, SLF)
+1. **Add bilinear functions**: Copy contents of `Bilinear_fit_function.m` to end of main core loss script (any of FEMA P-58, HAZUS, SLF)
 2. **Replace linear regression calls**: Follow detailed instructions in [`Implementation_Guide_Bilinear.md`](Implementation_ReadMe_Files/Implementation_Guide_Bilinear.md)
 3. **Key replacements** (5 locations in each script):
    ```matlab
@@ -218,7 +218,7 @@ Evaluates combinations of:
 **Sensitivity Analysis Scripts:**
 - `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m` - Weighted EDP weighting optimization 
 - `EDP_Statistics_Sensitivity_analysis.m` - Weighted EDP application and normalized EAL compuatation
-- `Piecewise_fit_function.m` - bilinear regression functions 
+- `Bilinear_fit_function.m` - bilinear regression functions 
 - `RIDR_Sensitivity_analysis.m` - Demolition threshold sensitivity 
 
 **Visualization Scripts:**
