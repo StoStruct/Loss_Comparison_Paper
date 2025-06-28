@@ -163,7 +163,7 @@ Enhanced IM-EDP demand modeling capturing structural nonlinearity through biline
        piecewise_linear_fit(logx_PSDR, logy_PSDR, best_breakpoint);
    ```
 
-#### 4.2.2 Weighted EDP Statistics
+#### 4.2.2 Weighted Average EDP Statistics
 
 This novel approach improves HAZUS assembly-based estimates by using weighted combinations of EDP percentiles.
 
@@ -210,12 +210,12 @@ Evaluates combinations of:
 ## 5. Repository Contents
 
 ### 5.1 Scripts
-**Core Analysis Scripts:**
+**Loss Analysis Scripts:**
 - `FEMAP58_Loss_Assessment.m` - FEMA P-58 component-based methodology 
 - `HAZUS_Loss_Assessment.m` - HAZUS assembly-based methodology 
 - `SLF_Loss_Assessment.m` - Story Loss Function-based methodology 
 
-**Advanced Analysis Scripts:**
+**Sensitivity Analysis Scripts:**
 - `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m` - EDP weighting optimization 
 - `EDP_Statistics_Sensitivity_analysis.m` - Weighted EDP application and normalized EAL compuatation
 - `Piecewise_fit_function.m` - bilinear regression functions 
