@@ -13,9 +13,13 @@
 %   - Demolition losses based on residual drift thresholds
 %
 % Author: Shiva Baddipalli
-% Institution: Utah State University, USA
 % Email: shivalinga.baddipalli@usu.edu
-% Last Updated: June 25, 2025
+% Last Updated: June 27, 2025
+%
+% Corresponding Author:
+% Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
+% Department of Civil and Environmental Engineering
+% Utah State University, Logan, UT, United States
 %
 % Reference:
 %   FEMA P-58-1 (2018). Seismic Performance Assessment of Buildings,
