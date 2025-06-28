@@ -4,7 +4,7 @@
 
 This repository contains two MATLAB codes that improve HAZUS assembly-based loss assessment by using **weighted EDP statistics** instead of single values (like maximum drift). The approach combines two EDP percentiles with an optimized weighting factor (α) to better match detailed component-based results.
 
-**Key Innovation:** Instead of using just maximum drift, we use:
+**Key Innovation:** Instead of using just maximum EDP, we use:
 ```
 Weighted_EDP = α × 75_Percentile + (1-α) × 25_Percentile
 ```
