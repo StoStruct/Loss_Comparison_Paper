@@ -101,10 +101,8 @@ log_alpha = slope*log(TimePeriod) + intercept;
 ```
 
 ## Contact
-
-**Shiva Baddipalli**  
-Utah State University  
-shivalinga.baddipalli@usu.edu
+**Primary Contact:**
+- Shiva Baddipalli (PhD Candidate): shivalinga.baddipalli@usu.edu
 
 **Corresponding Author:**  
 - Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
