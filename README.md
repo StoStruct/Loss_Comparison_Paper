@@ -38,7 +38,7 @@ of Steel Buildings. GitHub Repository. https://github.com/yourusername/repositor
 
 ## Overview and Motivation
 
-Seismic loss estimation is essential for assessing building performance and resilience under earthquake hazards. While numerous methodologies exist with varying fidelities, the extent of differences in their estimates and the impact of various modeling decisions remain underexplored. This study addresses these gaps through a systematic comparison of three prominent seismic loss estimation methodologies using a comprehensive database of 621 steel moment-resisting frame buildings.
+Seismic loss estimation is essential tool for assessing building performance and resilience under earthquake hazards. While numerous methodologies exist with varying fidelities, the extent of differences in their estimates and the impact of various modeling decisions remain underexplored. This study addresses these gaps through a systematic comparison of three prominent seismic loss estimation methodologies using a comprehensive database of 621 steel moment-resisting frame buildings.
 
 The research evaluates:
 1. **FEMA P-58 component-based approach**: High fidelity and detailed assessment using individual component inventory.
@@ -51,9 +51,9 @@ Additionally, sensitivity analyses investigate the influence of key modeling dec
 
 ![Methodology Flowchart](https://github.com/shivalingabaddipalli/Loss_Comparison_Sensitivity/blob/main/Figures/Methodology_Flowchart.png)
 
-**Figure 1. Comparison and sensitivity analysis of seismic loss assessment methodologies.**
+**Figure 1 (Figure 1 in manuscript). Comparison and sensitivity analysis of seismic loss assessment methodologies.**
 
-The methodology illustrated above shows the comprehensive approach used in this study, encompassing both the comparison of different loss assessment methods and the sensitivity analysis of key modeling decisions. The flowchart demonstrates how building inventory data from the steel building database flows through response analysis, fragility analysis, and loss analysis to ultimately produce Expected Annual Loss (EAL) estimates using different seismic loss estimation methods.
+The methodology illustrated above shows the comprehensive approach used in this study, encompassing both the comparison of different loss assessment methods and the sensitivity analysis of key modeling decisions. The flowchart demonstrates how building inventory data from the steel building database flows through response analysis, fragility analysis, and loss analysis to ultimately produce Expected Annual Loss (EAL) estimates using different seismic loss estimation methods. Further it presents different sensitivity parameters considered in the study.
 
 ### Database Description
 The analysis utilizes a database of 621 steel special moment resisting frame buildings from Guan et al. (2021) with diverse designs and geometries:
@@ -65,7 +65,6 @@ The analysis utilizes a database of 621 steel special moment resisting frame bui
 - **Ground motion suite**: 240 unscaled ground motion records from 12 California earthquakes
 - **Structural modeling**: Nonlinear OpenSees models with concentrated plasticity approach
 
-For more information regarding steel building database, please visit https://www.designsafe-ci.org/data/browser/public/designsafe.storage.published/PRJ-2048
 The underlying database is available from Guan et al. (2021) through DesignSafe-CI at https://www.designsafe-ci.org/data/browser/public/designsafe.storage.published/PRJ-2048. 
 
 ### Loss Assessment Methods
@@ -257,8 +256,3 @@ Evaluates combinations of:
 - Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
 - Department of Civil and Environmental Engineering
 - Utah State University, Logan, UT, United States
-
-**Co-Authors:**
-- Dr. Roberto Gentile: r.gentile@ucl.ac.uk (University College London)
-- Dr. Gerard J. O'Reilly: gerard.oreilly@iusspavia.it (IUSS Pavia)
-- Dr. Davit Shahnazaryan: davit.shahnazaryan@iusspavia.it (IUSS Pavia)
