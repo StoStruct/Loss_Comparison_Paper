@@ -189,7 +189,7 @@ for bd = 100:length(ID)-520
     % =====================================================================
     % HAZUS FRAGILITY AND COST DATA LOADING
     % =====================================================================
-    % HAZUS uses standardized fragility curves and loss ratios rather than
+    % HAZUS uses standardized fragility functions and cost ratios for different assemblies rather than
     % the detailed component-specific data used in FEMA P-58
     
     % Initialize normalized loss arrays for HAZUS methodology
@@ -236,7 +236,7 @@ for bd = 100:length(ID)-520
     % =====================================================================
     % STRUCTURAL COMPONENT LOSS ASSESSMENT - HAZUS APPROACH
     % =====================================================================
-    % HAZUS uses building-level fragility curves rather than individual
+    % HAZUS uses building-level fragility functions rather than individual
     % component assessment as in FEMA P-58
     
     % Extract building parameters
