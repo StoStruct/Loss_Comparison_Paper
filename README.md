@@ -2,8 +2,6 @@ README for scripts and data associated with the paper "Impact of Modeling Decisi
 
 This repository contains scripts and data associated with the research paper "Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings." The scripts and data can be used to reproduce analyses and plots associated with the companion journal manuscript. This repository should be cited as:
 
-Baddipalli, Shivalinga, Roberto Gentile, Gerard J. O'Reilly, Davit Shahnazaryan, and Mohsen Zaker Esteghamati (2025) "Scripts and data for Impact of Modeling Decisions on Seismic Loss and Fragility Assessment of Steel Buildings", GitHub Repository.
-
 **Citation:**
 When using this repository, please cite:
 
