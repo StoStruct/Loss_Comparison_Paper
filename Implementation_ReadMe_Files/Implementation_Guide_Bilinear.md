@@ -150,6 +150,7 @@ else
 end
 ```
 
+## Contact
 **Primary Contact:**
 - Shiva Baddipalli (PhD Candidate): shivalinga.baddipalli@usu.edu
 
