@@ -147,8 +147,8 @@ The study investigates four critical modeling decisions:
 Enhanced IM-EDP demand modeling capturing structural nonlinearity through bilinear relationships.
 
 **Implementation Steps**
-1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main scripts
-2. **Replace linear regression calls**: Follow detailed instructions in `Implementation_Guide_Bilinear.md`
+1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main core loss scripts (FEMA P-58, HAZUS, SLF)
+2. **Replace linear regression calls**: Follow detailed instructions in [`Implementation_Guide_Bilinear.md`](Implementation_ReadMe_Files/Implementation_Guide_Bilinear.md)
 3. **Key replacements** (5 locations in each script):
    ```matlab
    % OLD: Linear regression
