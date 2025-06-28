@@ -144,10 +144,10 @@ The study investigates four critical modeling decisions:
 
 #### 4.2.1 bilinear Linear Regression
 
-Enhanced IM-EDP demand modeling capturing structural nonlinearity through bilinear relationships.
+Enhanced IM-EDP modeling capturing structural nonlinearity through bilinear relationships.
 
 **Implementation Steps**
-1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main core loss scripts (FEMA P-58, HAZUS, SLF)
+1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main core loss script (any of FEMA P-58, HAZUS, SLF)
 2. **Replace linear regression calls**: Follow detailed instructions in [`Implementation_Guide_Bilinear.md`](Implementation_ReadMe_Files/Implementation_Guide_Bilinear.md)
 3. **Key replacements** (5 locations in each script):
    ```matlab
@@ -191,7 +191,7 @@ This script:
 - Computes complete EAL breakdown
 - Outputs: Excel file with normalized EAL results
 
-**Supported Modifications for Weighted EDP Analysis**
+**Supported Modifications for Weighted Average EDP Analysis**
 - **Different percentile combinations**: Modify weighted combination formulas
 - **Custom regression models**: Update regression coefficients based on new calibration data
 - **Alternative optimization criteria**: Adjust convergence tolerance and step size parameters
@@ -216,7 +216,7 @@ Evaluates combinations of:
 - `SLF_Loss_Assessment.m` - Story Loss Function-based methodology 
 
 **Sensitivity Analysis Scripts:**
-- `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m` - EDP weighting optimization 
+- `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m` - Weighted EDP weighting optimization 
 - `EDP_Statistics_Sensitivity_analysis.m` - Weighted EDP application and normalized EAL compuatation
 - `Piecewise_fit_function.m` - bilinear regression functions 
 - `RIDR_Sensitivity_analysis.m` - Demolition threshold sensitivity 
@@ -234,7 +234,7 @@ Evaluates combinations of:
 **Input Datasets:**
 - `GuanDataBase-IMs.xlsx` - Intensity measures for 621 buildings × 240 ground motions 
 - `USGSHazard_data.csv` - USGS seismic hazard curves for a site in Los Angeles 
-- `Building_Info.xlsx` - Building geometry and period data
+- `Building_Info.xlsx` - Accumulated building-specific information containing, geometry, design and other parameters
 
 **Fragility and Cost Data:**
 - `Steel_Building_Data/FEMAP-58_FragilityCostFunctions/` - Component-level fragility and cost functions
