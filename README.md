@@ -165,7 +165,7 @@ Enhanced IM-EDP demand modeling capturing structural nonlinearity through biline
 
 #### 4.2.2 Weighted Average EDP Statistics
 
-This novel approach improves HAZUS assembly-based estimates by using weighted combinations of EDP percentiles.
+This novel approach improves HAZUS assembly-based estimates by using weighted combinations of EDP percentiles. For detailed implementation instructions, see [`Readme_EDP_Statistic.md`](Implementation_ReadMe_Files/Readme_EDP_Statistic.md).
 
 **Two-Phase Process**
 
