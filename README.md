@@ -33,7 +33,7 @@ of Steel Buildings. GitHub Repository. https://github.com/yourusername/repositor
   * [4.1 Comparison of Seismic Loss Assessment Methodologies](#41-comparison-of-seismic-loss-assessment-methodologies)
     - [4.1.1 Steps for Standard Analysis](#411-steps-for-standard-analysis)
   * [4.2 Sensitivity Analysis](#42-sensitivity-analysis)
-    - [4.2.1 Piecewise Linear Regression](#421-piecewise-linear-regression)
+    - [4.2.1 bilinear Linear Regression](#421-bilinear-linear-regression)
     - [4.2.2 Weighted EDP Statistics](#422-weighted-edp-statistics)
     - [4.2.3 Residual Drift Sensitivity](#423-residual-drift-sensitivity)
 - [5. Repository Contents](#5-repository-contents)
@@ -111,7 +111,7 @@ The study investigates four critical modeling decisions:
 
 - MATLAB R2020b or later
 - Statistics and Machine Learning Toolbox
-- Optimization Toolbox (for weighted EDP statistics and piecewise regression)
+- Optimization Toolbox (for weighted EDP statistics and bilinear regression)
 - Curve Fitting Toolbox (recommended)
 
 ## 4. How to Use
@@ -142,19 +142,19 @@ The study investigates four critical modeling decisions:
 
 ### 4.2 Sensitivity Analysis
 
-#### 4.2.1 Piecewise Linear Regression
+#### 4.2.1 bilinear Linear Regression
 
 Enhanced IM-EDP demand modeling capturing structural nonlinearity through bilinear relationships.
 
 **Implementation Steps**
-1. **Add piecewise functions**: Copy contents of `Piecewise_fit_function.m` to end of main scripts
+1. **Add bilinear functions**: Copy contents of `Piecewise_fit_function.m` to end of main scripts
 2. **Replace linear regression calls**: Follow detailed instructions in `Implementation_Guide_Bilinear.md`
 3. **Key replacements** (5 locations in each script):
    ```matlab
    % OLD: Linear regression
    md_PIDR = fitlm(log(IM_GM(bd,:)), log(PSDR(flr,:)));
    
-   % NEW: Piecewise regression  
+   % NEW: bilinear regression  
    logx_PSDR = log(IM_GM(bd,:))';
    logy_PSDR = log(PSDR(flr,:))';
    best_breakpoint = fminbnd(@(breakpoint) objective(breakpoint, logx_PSDR, logy_PSDR), 
@@ -218,7 +218,7 @@ Evaluates combinations of:
 **Advanced Analysis Scripts:**
 - `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m` - EDP weighting optimization 
 - `EDP_Statistics_Sensitivity_analysis.m` - Weighted EDP application and normalized EAL compuatation
-- `Piecewise_fit_function.m` - Piecewise regression functions 
+- `Piecewise_fit_function.m` - bilinear regression functions 
 - `RIDR_Sensitivity_analysis.m` - Demolition threshold sensitivity 
 
 **Visualization Scripts:**
@@ -226,7 +226,7 @@ Evaluates combinations of:
 - `Plotters/Figure_8_NormalizedEAL_Comparison_EDP_Statistic.m` - EDP statistics comparison
 
 **Documentation:**
-- `Implementation_Guide_Bilinear.md` - Piecewise regression implementation guide 
+- `Implementation_Guide_Bilinear.md` - bilinear regression implementation guide 
 - `Readme_EDP_Statistic.md` - Weighted EDP statistics documentation 
 - `ReadMe_Plotters.txt` - Plotting instructions
 
