@@ -1,7 +1,7 @@
 %% Building Loss Assessment Using Story Loss Functions (SLFs)
 % ========================================================================
 % 
-% Author: Shiva Baddipalli
+% Author: Shiva Baddipalli (PhD Candidate)
 % Email: shivalinga.baddipalli@usu.edu
 % Last Updated: June 27, 2025
 %
@@ -196,7 +196,7 @@ for bd = 1:length(ID)
                 MD_PIDR=exp(MD_pidr);  % Convert from log space
 
 
-                %%%%%%% Enhanced interpolation approach for SLF evaluation
+                %%%%%%% interpolation approach for SLF evaluation
                 if MD_PIDR < 0
                     Loss_EDP_Baseplate = 0;
                     % disp('MD_PIDR less than zero');
@@ -962,18 +962,10 @@ All_Output(:,11)=Norm_EAL_Tot(:,1);             % Normalized total EAL (fraction
 % xlswrite(excelFileName, All_Output, sheetName);
 % disp('Data written to Excel successfully.');
 
-% Stop the timer and display performance statistics
+% Stop the timer 
 elapsedTime = toc;
 
-% Display the elapsed time and completion message
+% Display the elapsed time 
 disp(['Elapsed Time: ' num2str(elapsedTime) ' seconds']);
 disp(['Elapsed Time: ' num2str(elapsedTime / 60) ' minutes']);
 disp(['Elapsed Time: ' num2str(elapsedTime / (60*60)) ' hours']);
-
-% Display completion message with summary
-fprintf('\n=== SLF-BASED SEISMIC LOSS ASSESSMENT COMPLETED ===\n');
-fprintf('Total buildings processed: %d\n', length(ID));
-fprintf('Average processing time per building: %.3f seconds\n', elapsedTime/length(ID));
-fprintf('Output matrix size: %d x %d\n', size(All_Output,1), size(All_Output,2));
-fprintf('Results ready for analysis and export.\n');
-fprintf('=====================================================\n');
