@@ -156,8 +156,8 @@ for bd = 100:length(ID)-520
     % Component configuration matrix: [quantity, floor_pattern]
     % floor_pattern: 1=first floor only, 2=every 2nd floor, 3=all floors
     component_config = [
-        SMRF_Cols,      1;  % Component 1: SMRF Columns (base connections)
-        TotalColumns,   2;  % Component 2: All Columns (above base)
+        SMRF_Cols,      1;  % Component 1: SMRF Columns (For base plate connections)
+        TotalColumns,   2;  % Component 2: All Columns (For splices)
         Num_ShearTabs,  3;  % Component 3: Shear Tab connections
         RBS_1sided,     3;  % Component 4: RBS 1-sided connections
         RBS_2sided,     3;  % Component 5: RBS 2-sided connections
@@ -209,7 +209,7 @@ for bd = 100:length(ID)-520
             switch floor_pattern
                 case 1  % First floor only (base connections)
                     floors = 1;
-                case 2  % Every 2nd floor (intermediate connections)
+                case 2  % Every 2nd floor (intermediate)
                     floors = 1:2:height(PSDR);
                 case 3  % All floors (distributed components)
                     floors = 1:height(PSDR);
@@ -245,7 +245,7 @@ for bd = 100:length(ID)-520
                 end
 
                 % Calculate probability of being in each damage state
-                % P(DS=i) = P(DS≥i) - P(DS≥i+1)
+                % P(DS=i) = F(DS≥i) - F(DS≥i+1)
                 if length(medianEDP) == 1
                     Prob_ds(:, 1) = Frag_DS(:, 1);
                 else
@@ -301,7 +301,7 @@ for bd = 100:length(ID)-520
     mediancost = readmatrix(fileMedianCost_NonStructureDrift);
     quantities = readmatrix(fileQuantities_NonStructureDrift);
 
-    % Component types: partitions, facades, stairs, elevator systems
+    % Component types: partitions, facades, stairs, elevator systems etc
     Num_NonStructDriftComp = 4;
     AllCompLoss_NonStrucDrift = zeros(Num_NonStructDriftComp, 1);
     TotCompLoss_NonStrucDrift = zeros(1, length(SaCalc));
