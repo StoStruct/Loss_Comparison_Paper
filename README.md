@@ -19,24 +19,30 @@ of Steel Buildings. GitHub Repository. https://github.com/yourusername/repositor
 ```
 
 ## Table of Contents
-- [Overview and Motivation](#overview-and-motivation)
-- [Methodology Overview](#methodology-overview)
-  * [Methodology Flowchart](#methodology-flowchart)
-  * [Database Description](#database-description)
-  * [Loss Assessment Methods](#loss-assessment-methods)
-  * [Sensitivity Analysis Framework](#sensitivity-analysis-framework)
-- [System Requirements](#system-requirements)
-- [How to Use](#how-to-use)
-  * [Comparison of Seismic Loss Assessment Methodologies](#comparison-of-seismic-loss-assessment-methodologies)
-  * [Sensitivity Analysis](#sensitivity-analysis)
-    - [Bilinear Regression](#piecewise-linear-regression)
-    - [EDP Statistics in HAZUS assembly-based method](#weighted-edp-statistics)
-    - [Residual Drift Sensitivity](#residual-drift-sensitivity)
-- [Repository Contents](#repository-contents)
-- [Credits and Data Sources](#credits-and-data-sources)
-- [Contact](#contact)
+- [1. Overview and Motivation](#1-overview-and-motivation)
+- [2. Methodology Overview](#2-methodology-overview)
+  * [2.1 Methodology Flowchart](#21-methodology-flowchart)
+  * [2.2 Database Description](#22-database-description)
+  * [2.3 Loss Assessment Methods](#23-loss-assessment-methods)
+    - [2.3.1 FEMA P-58 Component-Based Method](#231-fema-p-58-component-based-method)
+    - [2.3.2 HAZUS Assembly-Based Method](#232-hazus-assembly-based-method)
+    - [2.3.3 Story Loss Function (SLF)-Based Method](#233-story-loss-function-slf-based-method)
+  * [2.4 Sensitivity Analysis Framework](#24-sensitivity-analysis-framework)
+- [3. System Requirements](#3-system-requirements)
+- [4. How to Use](#4-how-to-use)
+  * [4.1 Comparison of Seismic Loss Assessment Methodologies](#41-comparison-of-seismic-loss-assessment-methodologies)
+    - [4.1.1 Steps for Standard Analysis](#411-steps-for-standard-analysis)
+  * [4.2 Sensitivity Analysis](#42-sensitivity-analysis)
+    - [4.2.1 Piecewise Linear Regression](#421-piecewise-linear-regression)
+    - [4.2.2 Weighted EDP Statistics](#422-weighted-edp-statistics)
+    - [4.2.3 Residual Drift Sensitivity](#423-residual-drift-sensitivity)
+- [5. Repository Contents](#5-repository-contents)
+  * [5.1 Scripts](#51-scripts)
+  * [5.2 Data](#52-data)
+- [6. Credits and Data Sources](#6-credits-and-data-sources)
+- [7. Contact](#7-contact)
 
-## Overview and Motivation
+## 1. Overview and Motivation
 
 Seismic loss estimation is essential tool for assessing building performance and resilience under earthquake hazards. While numerous methodologies exist with varying fidelities, the extent of differences in their estimates and the impact of various modeling decisions remain underexplored. This study addresses these gaps through a systematic comparison of three prominent seismic loss estimation methodologies using a comprehensive database of 621 steel moment-resisting frame buildings.
 
@@ -47,7 +53,9 @@ The research evaluates:
 
 Additionally, sensitivity analyses investigate the influence of key modeling decisions including IM-EDP formulation, EDP proxy selection, demolition fragility characterization, and nonstructural component quantity uncertainties.
 
-## Methodology Overview
+## 2. Methodology Overview
+
+### 2.1 Methodology Flowchart
 
 ![Methodology Flowchart](https://github.com/shivalingabaddipalli/Loss_Comparison_Sensitivity/blob/main/Figures/Methodology_Flowchart.png)
 
@@ -55,7 +63,7 @@ Additionally, sensitivity analyses investigate the influence of key modeling dec
 
 The methodology illustrated above shows the comprehensive approach used in this study, encompassing both the comparison of different loss assessment methods and the sensitivity analysis of key modeling decisions. The flowchart demonstrates how building inventory data from the steel building database flows through response analysis, fragility analysis, and loss analysis to ultimately produce Expected Annual Loss (EAL) estimates using different seismic loss estimation methods. Further it presents different sensitivity parameters considered in the study.
 
-### Database Description
+### 2.2 Database Description
 The analysis utilizes a database of 621 steel special moment resisting frame buildings from Guan et al. (2021) with diverse designs and geometries:
 
 - **Building heights**: 1, 5, 9, 14, and 19 stories
@@ -67,9 +75,9 @@ The analysis utilizes a database of 621 steel special moment resisting frame bui
 
 The underlying database is available from Guan et al. (2021) through DesignSafe-CI at https://www.designsafe-ci.org/data/browser/public/designsafe.storage.published/PRJ-2048. 
 
-### Loss Assessment Methods
+### 2.3 Loss Assessment Methods
 
-#### FEMA P-58 Component-Based Method
+#### 2.3.1 FEMA P-58 Component-Based Method
 The most detailed approach evaluating individual building components:
 - Structural components: column base plates, splices, beam-column connections
 - Non-structural drift-sensitive: partitions, facades, stairs, elevators
@@ -77,21 +85,20 @@ The most detailed approach evaluating individual building components:
 - Component quantities determined using FEMA P-58 Normative Tool
 - Floor-by-floor analysis using engineering demand parameters
 
-#### HAZUS Assembly-Based Method  
+#### 2.3.2 HAZUS Assembly-Based Method  
 Simplified approach using aggregated component categories:
 - Three main assemblies: structural, non-structural drift-sensitive, non-structural acceleration-sensitive
 - Building-level maximum response parameters
 - Standardized fragility functions and loss ratios
 - Rapid assessment suitable for portfolio evaluation
 
-#### Story Loss Function (SLF)-Based Method
+#### 2.3.3 Story Loss Function (SLF)-Based Method
 An approach aggregating component losses at story level:
 - Pre-computed loss functions relating EDPs to monetary losses
 - Story-level aggregation of component damages
 - Reduced computational burden while maintaining component-level detail
 
-
-### Sensitivity Analysis Framework
+### 2.4 Sensitivity Analysis Framework
 
 The study investigates four critical modeling decisions:
 
@@ -100,18 +107,18 @@ The study investigates four critical modeling decisions:
 3. **Demolition Fragility Parameters**: Residual drift threshold and uncertainty characterization
 4. **Nonstructural Component Quantities**: Impact of quantity uncertainties on loss estimates
 
-## System Requirements
+## 3. System Requirements
 
 - MATLAB R2020b or later
 - Statistics and Machine Learning Toolbox
 - Optimization Toolbox (for weighted EDP statistics and piecewise regression)
 - Curve Fitting Toolbox (recommended)
 
-## How to Use
+## 4. How to Use
 
-### Comparison of Seismic Loss Assessment Methodologies
+### 4.1 Comparison of Seismic Loss Assessment Methodologies
 
-#### Steps for Standard Analysis
+#### 4.1.1 Steps for Standard Analysis
 1. **Prepare workspace**: Ensure all data files are in the working directory and required folders are added to MATLAB path.
 
 2. **Run core loss assessment methods**:
@@ -133,13 +140,13 @@ The study investigates four critical modeling decisions:
    Figure_8_NormalizedEAL_Comparison_EDP_Statistic.m  % EDP statistics comparison
    ```
 
-### Sensitivity Analysis: 
+### 4.2 Sensitivity Analysis
 
-1. **Piecewise Linear Regression**
+#### 4.2.1 Piecewise Linear Regression
 
 Enhanced IM-EDP demand modeling capturing structural nonlinearity through bilinear relationships.
 
-#### Implementation Steps
+**Implementation Steps**
 1. **Add piecewise functions**: Copy contents of `Piecewise_fit_function.m` to end of main scripts
 2. **Replace linear regression calls**: Follow detailed instructions in `Implementation_Guide_Bilinear.md`
 3. **Key replacements** (5 locations in each script):
@@ -156,11 +163,11 @@ Enhanced IM-EDP demand modeling capturing structural nonlinearity through biline
        piecewise_linear_fit(logx_PSDR, logy_PSDR, best_breakpoint);
    ```
 
-2. **Weighted EDP Statistics**
+#### 4.2.2 Weighted EDP Statistics
 
 This novel approach improves HAZUS assembly-based estimates by using weighted combinations of EDP percentiles.
 
-#### Two-Phase Process
+**Two-Phase Process**
 
 **Phase 1: Alpha Optimization**
 ```matlab
@@ -184,12 +191,12 @@ This script:
 - Computes complete EAL breakdown
 - Outputs: Excel file with normalized EAL results
 
-#### Supported Modifications for Weighted EDP Analysis
+**Supported Modifications for Weighted EDP Analysis**
 - **Different percentile combinations**: Modify weighted combination formulas
 - **Custom regression models**: Update regression coefficients based on new calibration data
 - **Alternative optimization criteria**: Adjust convergence tolerance and step size parameters
 
-3. **Residual Drift Sensitivity**
+#### 4.2.3 Residual Drift Sensitivity
 
 ```matlab
 % Analyze sensitivity to demolition threshold parameters
@@ -200,9 +207,9 @@ Evaluates combinations of:
 - Uncertainty levels: 0.1 to 0.8 logarithmic standard deviation
 - Outputs: Grid of results for each parameter combination
 
-## Repository Contents
+## 5. Repository Contents
 
-### Scripts
+### 5.1 Scripts
 **Core Analysis Scripts:**
 - `FEMAP58_Loss_Assessment.m` - FEMA P-58 component-based methodology 
 - `HAZUS_Loss_Assessment.m` - HAZUS assembly-based methodology 
@@ -223,7 +230,7 @@ Evaluates combinations of:
 - `Readme_EDP_Statistic.md` - Weighted EDP statistics documentation 
 - `ReadMe_Plotters.txt` - Plotting instructions
 
-### Data
+### 5.2 Data
 **Input Datasets:**
 - `GuanDataBase-IMs.xlsx` - Intensity measures for 621 buildings × 240 ground motions 
 - `USGSHazard_data.csv` - USGS seismic hazard curves for a site in Los Angeles 
@@ -238,8 +245,7 @@ Evaluates combinations of:
 - `Guan_database/StructuralResponses/EDPsUnder240GMs/` - Peak story drift, floor acceleration, and residual drift responses
 - `Guan_database/BuildingDesigns/` - Building geometry files
 
-
-## Credits and Data Sources
+## 6. Credits and Data Sources
 
 - **Steel Building Database**: Guan, M., Burton, H., & Shokrabadi, M. (2021). A database of seismic designs, nonlinear models, and seismic responses for steel moment-resisting frame buildings. *Earthquake Spectra*, 37(2), 1199-1222.
 - **FEMA P-58 Methodology**: Federal Emergency Management Agency (2018). Seismic Performance Assessment of Buildings, Volume 1 - Methodology.
@@ -247,7 +253,7 @@ Evaluates combinations of:
 - **Seismic Hazard Data**: USGS Unified Hazard Tool (earthquake.usgs.gov/hazards/interactive/)
 - **Story Loss Functions**: Based on methodology from Shahnazaryan, D., O'Reilly, G.J., & Monteiro, R. (2021). Story loss functions for seismic design and assessment. *Earthquake Spectra*, 37(4), 2813-2839.
 
-## Contact
+## 7. Contact
 
 **Primary Contact:**
 - Shiva Baddipalli (PhD Candidate): shivalinga.baddipalli@usu.edu
