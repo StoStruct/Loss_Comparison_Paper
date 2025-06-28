@@ -15,8 +15,7 @@ Earthquake Spectra. [Under Review]
 ```
 Baddipalli, S., Gentile, R., O'Reilly, G.J., Shahnazaryan, D., & Esteghamati, M.Z. (2025). 
 Scripts and data for Impact of Modeling Decisions on Seismic Loss and Fragility Assessment 
-of Steel Buildings. GitHub Repository. https://github.com/yourusername/repository-name [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15764906.svg)](https://doi.org/10.5281/zenodo.15764906)
-```
+of Steel Buildings. GitHub Repository. https://doi.org/10.5281/zenodo.15764906
 
 ## Table of Contents
 - [1. Overview and Motivation](#1-overview-and-motivation)
