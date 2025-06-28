@@ -1,6 +1,6 @@
 # Weighted EDP Statistics for Seismic Loss Assessment
 
-## Overview
+## 1. Overview
 
 This repository contains two MATLAB codes that improve HAZUS assembly-based loss assessment by using **weighted average EDP statistics** instead of single values (like maximum EDP response). The approach combines two EDP percentiles with an optimized weighting factor (α) to better match detailed component-based results.
 
@@ -9,7 +9,7 @@ This repository contains two MATLAB codes that improve HAZUS assembly-based loss
 Weighted_EDP = α × 75_Percentile + (1-α) × 25_Percentile
 ```
 
-## The Two-Step Process
+## 2. The Two-Step Process
 
 ### Step 1: Find Optimal Alpha Values
 **File:** `Alpha_Optimization_EDP_Statistics_25_75_Percentiles.m`
@@ -25,9 +25,9 @@ Weighted_EDP = α × 75_Percentile + (1-α) × 25_Percentile
 - **How:** Applies period-dependent α values to weighted EDP statistics
 - **Output:** Complete EAL breakdown in Excel format
 
-## Required Files
+## 3. Required Files
 
-### Input Data
+### 3.1. Input Data
 ```
 Data/
 ├── GuanDataBase-IMs.csv              # Ground motion intensities
@@ -47,7 +47,7 @@ Data/
     └── Cost_Data.csv
 ```
 
-## Key Parameters
+## 4. Key Parameters
 
 ### Code 1 (Optimization)
 ```matlab
@@ -65,7 +65,7 @@ log_alpha = -0.20187*(log(TimePeriod)) + 1.4919;
 Weighted_PSDR = alpha * Percentile75_PSDR + (1-alpha) * Percentile25_PSDR;
 ```
 
-## Output Files
+## 5. Output Files
 
 ### From Code 1
 - `Alpha_Values_25_75Percentiles.csv` - One α value per building
@@ -78,7 +78,7 @@ Excel file with 11 columns:
 | 2-6 | EAL by component (Struct, NS-Drift, NS-Acc, Demo, Total) | $ |
 | 7-11 | Normalized EAL by component | - |
 
-## Customization
+## 6. Customization
 
 ### Change EDP Statistics
 ```matlab
@@ -100,7 +100,7 @@ mdl = fitlm(log(periods), log(alphas));
 log_alpha = slope*log(TimePeriod) + intercept;
 ```
 
-## Contact
+## 7. Contact
 **Primary Contact:**
 - Shiva Baddipalli (PhD Candidate): shivalinga.baddipalli@usu.edu
 
