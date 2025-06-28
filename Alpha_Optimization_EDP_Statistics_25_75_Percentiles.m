@@ -17,10 +17,14 @@
 %     and target normalized EAL values
 %   - Applies iterative step-size reduction algorithm for convergence
 %
-% Author: Shiva Baddipalli
-% Institution: Utah State University, USA
+% Author: Shiva Baddipalli% 
 % Email: shivalinga.baddipalli@usu.edu
 % Last Updated: June 27, 2025
+%
+%Corresponding Author:
+% Dr. Mohsen Zaker Esteghamati (Assistant Professor): mohsen.zaker@usu.edu
+% Department of Civil and Environmental Engineering
+% Utah State University, Logan, UT, United States
 %
 %
 % Input Files Required:
